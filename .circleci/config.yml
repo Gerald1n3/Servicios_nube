@@ -14,7 +14,7 @@ jobs: # a collection of steps
           key: dependency-cache-{{ checksum "package-lock.json" }}
       - run:
           name: Check npm and node version
-          command: |
+          command: npm audit fix
             node --version
             npm --version
       - run:
@@ -29,7 +29,7 @@ jobs: # a collection of steps
           command: npm test
       - run: 
           name: audit
-          command: npm audit fix
+          command: npm audit
       
     
       - setup_remote_docker:
